@@ -2,17 +2,33 @@
   max-width: $grid-width;
   margin: 0 auto;
 
-  @include clearfix;
-
   &:not(:last-child) {
     margin-bottom: $gutter-vertical;
+    @include respond(tablet-portrait) {
+      margin-bottom: $gutter-vertical-small;
+    }
   }
+
+  @include respond(tablet-portrait) {
+    max-width: 50.5rem;
+    padding: 0 3rem;
+  }
+
+  @include clearfix;
 
   [class^="col-"] {
     float: left;
 
     &:not(:last-child) {
       margin-right: $gutter-horizontal;
+      @include respond(tablet-portrait) {
+        margin-right: 0;
+        margin-bottom: $gutter-vertical-small;
+      }
+    }
+
+    @include respond(tablet-portrait) {
+      width: 100% !important;
     }
   }
 
